@@ -130,127 +130,64 @@ export default function Index() {
       <section id="register" className="relative border-y">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
         <div className="absolute inset-0 -z-10 opacity-40 [background-image:radial-gradient(hsl(var(--brand-gold))/0.15_1px,transparent_1px)] [background-size:24px_24px]" />
-        <div className="container py-16 md:py-24 space-y-12">
-          {/* Header Section */}
-          <div className="text-center max-w-3xl mx-auto">
+        <div className="container py-16 md:py-24 grid md:grid-cols-2 gap-10 items-start">
+          <div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
               Register for the 4th Igiehon Mathematics Tournament
             </h2>
-            <p className="text-muted-foreground mt-2 text-lg">
+            <p className="text-muted-foreground mt-2">
               Event: {upcomingEvent.date} • Benin City, Edo State
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-brand-gold"></div>
-                <span>Free registration</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-brand-gold"></div>
-                <span>Open to senior secondary schools in Edo State</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-brand-gold"></div>
-                <span>Registration Window: {upcomingEvent.registrationWindow}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            {/* Prize Pool Card */}
-            <div className="rounded-2xl border bg-gradient-to-br from-brand-gold/5 via-card to-primary/5 p-8 shadow-lg ring-1 ring-border/50">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-brand-gold mb-2">Prize Pool</h3>
-                <p className="text-muted-foreground">Rewarding academic excellence</p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="text-center p-4 rounded-xl bg-card/80 border border-brand-gold/20">
-                  <div className="text-sm font-medium text-brand-gold mb-1">1st Place</div>
+            <ul className="mt-4 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
+              <li>Free registration</li>
+              <li>Open to senior secondary schools in Edo State</li>
+              <li>Registration Window: {upcomingEvent.registrationWindow}</li>
+            </ul>
+            <div className="mt-6 rounded-xl border bg-gradient-to-r from-brand-gold/10 to-primary/10 p-5">
+              <h3 className="font-semibold text-brand-gold">Prize Pool</h3>
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="text-center p-3 rounded-lg bg-card/80">
+                  <div className="text-lg font-bold text-brand-gold">1st Place</div>
                   <div className="text-2xl font-extrabold">₦1,000,000</div>
                 </div>
-                <div className="text-center p-4 rounded-xl bg-card/80 border border-brand-gold/20">
-                  <div className="text-sm font-medium text-brand-gold mb-1">2nd Place</div>
+                <div className="text-center p-3 rounded-lg bg-card/80">
+                  <div className="text-lg font-bold text-brand-gold">2nd Place</div>
                   <div className="text-2xl font-extrabold">₦750,000</div>
                 </div>
-                <div className="text-center p-4 rounded-xl bg-card/80 border border-brand-gold/20">
-                  <div className="text-sm font-medium text-brand-gold mb-1">3rd Place</div>
+                <div className="text-center p-3 rounded-lg bg-card/80">
+                  <div className="text-lg font-bold text-brand-gold">3rd Place</div>
                   <div className="text-2xl font-extrabold">₦500,000</div>
                 </div>
               </div>
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <Button asChild variant="secondary" className="w-full">
-                  <a href="#volunteer">Volunteer</a>
-                </Button>
-                <Button asChild variant="outline" className="w-full">
-                  <a href="#partners">Become a Partner</a>
-                </Button>
-              </div>
             </div>
-
-            {/* Registration Form Card */}
-            <div className="rounded-2xl border bg-card/90 backdrop-blur p-8 shadow-lg ring-1 ring-border">
-              <RegistrationForm interest="event" />
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <Button asChild variant="secondary">
+                <a href="#volunteer">Volunteer</a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href="#partners">Become a Partner</a>
+              </Button>
+            </div>
+            <div className="mt-6 rounded-xl border bg-card p-5">
+              <h3 className="font-semibold">Eligibility Criteria</h3>
+              <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                <li>Open to all Senior Secondary Schools in Edo State</li>
+                <li>
+                  All participants must be current Senior Secondary Students
+                </li>
+                <li>
+                  Teams consist of two (2) students from any class or department
+                </li>
+                <li>Teams must identify a teacher coach at registration</li>
+                <li>
+                  Competition includes written test (Initial Round) and oral
+                  segment (Finals)
+                </li>
+              </ul>
             </div>
           </div>
-
-          {/* Eligibility Criteria - Full Width Section */}
-          <div className="rounded-2xl border bg-card/50 backdrop-blur">
-            <div className="p-8">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Eligibility Criteria</h3>
-                <p className="text-muted-foreground">Requirements for participation in the tournament</p>
-              </div>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-card/80 border border-border/50">
-                  <div className="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-medium mb-1">School Eligibility</h4>
-                    <p className="text-sm text-muted-foreground">Open to all Senior Secondary Schools in Edo State</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-card/80 border border-border/50">
-                  <div className="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-medium mb-1">Student Requirements</h4>
-                    <p className="text-sm text-muted-foreground">All participants must be current Senior Secondary Students</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-card/80 border border-border/50">
-                  <div className="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-medium mb-1">Team Composition</h4>
-                    <p className="text-sm text-muted-foreground">Teams consist of two (2) students from any class or department</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-card/80 border border-border/50">
-                  <div className="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-medium mb-1">Teacher Coach</h4>
-                    <p className="text-sm text-muted-foreground">Teams must identify a teacher coach at registration</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-card/80 border border-border/50">
-                  <div className="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-medium mb-1">Competition Format</h4>
-                    <p className="text-sm text-muted-foreground">Competition includes written test (Initial Round) and oral segment (Finals)</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-card/80 border border-border/50">
-                  <div className="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h4 className="font-medium mb-1">Awards</h4>
-                    <p className="text-sm text-muted-foreground">Laptops awarded to top 3 individual students, consolation prizes for top 10</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="rounded-2xl border bg-card/90 backdrop-blur p-6 shadow-lg ring-1 ring-border">
+            <RegistrationForm interest="event" />
           </div>
         </div>
       </section>
