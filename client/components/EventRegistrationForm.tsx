@@ -214,7 +214,7 @@ export function EventRegistrationForm() {
                   <FormControl>
                     <Input placeholder="+234..." {...field} />
                   </FormControl>
-                  <FormDescription>WhatsApp preferred if available.</FormDescription>
+                  <FormDescription>WhatsApp preferred if available</FormDescription>
                   <FormMessage />
                 </FormItem>
               )} />
