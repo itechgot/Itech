@@ -18,9 +18,9 @@ export const impactStats = [
 
 export const pastEvents = [
   {
-    title: "IMT 2024 — Edo Innovation Hub",
+    title: "IMT 2024 — Tournament Highlights",
     date: "16 Nov 2024",
-    image: "https://igiehonfoundation.org/assets/images/winnersawsrd-902x856.webp",
+    image: "/images/IMG-20250925-WA0000 (1).jpg",
   },
   {
     title: "Winners & Awards",
