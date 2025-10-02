@@ -246,71 +246,91 @@ export function EventRegistrationForm() {
           )}
 
           {current.key === "students" && (
-            <motion.div key="students" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="md:col-span-2 mt-2">
-                <h4 className="font-semibold">Students Representing the School</h4>
-                <p className="text-sm text-muted-foreground">Provide details for both students participating in the tournament.</p>
+            <motion.div key="students" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="space-y-6">
+              <div className="text-center">
+                <h4 className="text-lg font-semibold">Students Representing the School</h4>
+                <p className="text-sm text-muted-foreground mt-1">Provide details for both students participating in the tournament.</p>
               </div>
 
-              <FormField control={form.control} name="student1Name" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Student 1 Full Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Student 1 full name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
-              
-              <FormField control={form.control} name="student1Email" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Student 1 Email</FormLabel>
-                  <FormControl>
-                    <Input type="email" placeholder="student1@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
-              
-              <FormField control={form.control} name="student1Phone" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Student 1 Phone</FormLabel>
-                  <FormControl>
-                    <Input placeholder="+234..." {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
+              {/* Student 1 Section */}
+              <div className="rounded-lg border bg-card/50 p-4 space-y-4">
+                <div className="flex items-center gap-2 pb-2 border-b">
+                  <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium">1</div>
+                  <h5 className="font-medium">First Student</h5>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <FormField control={form.control} name="student1Name" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Student's full name" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  
+                  <FormField control={form.control} name="student1Email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email Address</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="student@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  
+                  <FormField control={form.control} name="student1Phone" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="+234..." {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+              </div>
 
-              <FormField control={form.control} name="student2Name" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Student 2 Full Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Student 2 full name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
-              
-              <FormField control={form.control} name="student2Email" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Student 2 Email</FormLabel>
-                  <FormControl>
-                    <Input type="email" placeholder="student2@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
-              
-              <FormField control={form.control} name="student2Phone" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Student 2 Phone</FormLabel>
-                  <FormControl>
-                    <Input placeholder="+234..." {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
+              {/* Student 2 Section */}
+              <div className="rounded-lg border bg-card/50 p-4 space-y-4">
+                <div className="flex items-center gap-2 pb-2 border-b">
+                  <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium">2</div>
+                  <h5 className="font-medium">Second Student</h5>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <FormField control={form.control} name="student2Name" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Student's full name" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  
+                  <FormField control={form.control} name="student2Email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email Address</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="student@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  
+                  <FormField control={form.control} name="student2Phone" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="+234..." {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+              </div>
             </motion.div>
           )}
 
