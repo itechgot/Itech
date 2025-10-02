@@ -72,7 +72,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/partners" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/#impact" className="text-muted-foreground hover:text-primary transition-colors">
+                  Impact
+                </Link>
+              </li>
+              <li>
+                <Link to="/#partners" className="text-muted-foreground hover:text-primary transition-colors">
                   Partners
                 </Link>
               </li>

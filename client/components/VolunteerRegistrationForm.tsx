@@ -22,6 +22,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -64,6 +65,7 @@ const volunteerSchema = z.object({
 });
 
 export function VolunteerRegistrationForm() {
+  const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
 
   const form = useForm<z.infer<typeof volunteerSchema>>({
@@ -84,6 +86,34 @@ export function VolunteerRegistrationForm() {
       notes: "",
     },
   });
+
+  const steps = [
+    { key: "personal", label: "Personal Info" },
+    { key: "experience", label: "Experience" },
+    { key: "availability", label: "Availability" },
+    { key: "emergency", label: "Emergency Contact" },
+    { key: "review", label: "Review" },
+  ];
+
+  const current = steps[step];
+  const progress = Math.round(((step + 1) / steps.length) * 100);
+
+  const next = async () => {
+    const fieldsByStep: Record<string, (keyof z.infer<typeof volunteerSchema>)[]> = {
+      personal: ["fullName", "email", "phone", "age", "occupation"],
+      experience: ["experience", "skills", "skillsOther", "motivation"],
+      availability: ["availability"],
+      emergency: ["emergencyContact", "emergencyPhone", "notes"],
+      review: [],
+    };
+
+    const fields = fieldsByStep[current.key];
+    const ok = await form.trigger(fields as any, { shouldFocus: true });
+    if (!ok) return;
+    setStep((s) => Math.min(s + 1, steps.length - 1));
+  };
+
+  const back = () => setStep((s) => Math.max(0, s - 1));
 
   async function onSubmit(values: z.infer<typeof volunteerSchema>) {
     const WEB3FORMS_KEY = "dfeaba57-2dc1-45e1-8c31-9d75f2823e10";
@@ -139,198 +169,284 @@ export function VolunteerRegistrationForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Volunteer Application</h3>
-          <p className="text-sm text-muted-foreground">Join our team to deliver an exceptional experience for students.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormField control={form.control} name="fullName" render={({ field }) => (
-            <FormItem className="md:col-span-2">
-              <FormLabel>Full Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Your full name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-
-          <FormField control={form.control} name="email" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email Address</FormLabel>
-              <FormControl>
-                <Input type="email" placeholder="you@example.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-
-          <FormField control={form.control} name="phone" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone Number</FormLabel>
-              <FormControl>
-                <Input placeholder="+234..." {...field} />
-              </FormControl>
-              <FormDescription>WhatsApp preferred if available.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )} />
-
-          <FormField control={form.control} name="age" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Age</FormLabel>
-              <FormControl>
-                <Input placeholder="25" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-
-          <FormField control={form.control} name="occupation" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Occupation (Optional)</FormLabel>
-              <FormControl>
-                <Input placeholder="Your profession or field of study" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-        </div>
-
-        <FormField control={form.control} name="experience" render={({ field }) => (
-          <FormItem>
-            <FormLabel>Volunteer Experience</FormLabel>
-            <Select onValueChange={field.onChange} defaultValue={field.value}>
-              <FormControl>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select your experience level" />
-                </SelectTrigger>
-              </FormControl>
-              <SelectContent>
-                <SelectItem value="first_time">First time volunteering</SelectItem>
-                <SelectItem value="some_experience">Some volunteer experience</SelectItem>
-                <SelectItem value="very_experienced">Very experienced volunteer</SelectItem>
-              </SelectContent>
-            </Select>
-            <FormMessage />
-          </FormItem>
-        )} />
-
-        <FormField control={form.control} name="availability" render={() => (
-          <FormItem>
-            <FormLabel>When are you available? (Select all that apply)</FormLabel>
-            <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-3">
-              {availabilityOptions.map((opt) => (
-                <FormField key={opt.value} control={form.control} name="availability" render={({ field }) => {
-                  const checked = (field.value || []).includes(opt.value);
-                  return (
-                    <FormItem className="flex items-center gap-3 space-y-0 border rounded-md p-3">
-                      <FormControl>
-                        <Checkbox
-                          checked={checked}
-                          onCheckedChange={(v) => {
-                            const arr = new Set(field.value || []);
-                            if (v) arr.add(opt.value); else arr.delete(opt.value);
-                            field.onChange(Array.from(arr));
-                          }}
-                        />
-                      </FormControl>
-                      <FormLabel className="!m-0 !text-sm">{opt.label}</FormLabel>
-                    </FormItem>
-                  );
-                }} />
-              ))}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-semibold">Volunteer Application</h3>
+              <p className="text-sm text-muted-foreground">Step {step + 1} of {steps.length}: {current.label}</p>
             </div>
-            <FormMessage />
-          </FormItem>
-        )} />
-
-        <FormField control={form.control} name="skills" render={() => (
-          <FormItem>
-            <FormLabel>Skills & Interests (Select all that apply)</FormLabel>
-            <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-3">
-              {skillsOptions.map((opt) => (
-                <FormField key={opt.value} control={form.control} name="skills" render={({ field }) => {
-                  const checked = (field.value || []).includes(opt.value);
-                  return (
-                    <FormItem className="flex items-center gap-3 space-y-0 border rounded-md p-3">
-                      <FormControl>
-                        <Checkbox
-                          checked={checked}
-                          onCheckedChange={(v) => {
-                            const arr = new Set(field.value || []);
-                            if (v) arr.add(opt.value); else arr.delete(opt.value);
-                            field.onChange(Array.from(arr));
-                          }}
-                        />
-                      </FormControl>
-                      <FormLabel className="!m-0 !text-sm">{opt.label}</FormLabel>
-                    </FormItem>
-                  );
-                }} />
-              ))}
-            </div>
-            <FormMessage />
-          </FormItem>
-        )} />
-
-        {form.watch("skills")?.includes("other") && (
-          <FormField control={form.control} name="skillsOther" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Please specify your other skills</FormLabel>
-              <FormControl>
-                <Input placeholder="Describe your other relevant skills" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-        )}
-
-        <FormField control={form.control} name="motivation" render={({ field }) => (
-          <FormItem>
-            <FormLabel>Why do you want to volunteer with us?</FormLabel>
-            <FormControl>
-              <Textarea placeholder="Tell us what motivates you to volunteer for the Igiehon Mathematics Tournament..." {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormField control={form.control} name="emergencyContact" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Emergency Contact Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Contact person's name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-
-          <FormField control={form.control} name="emergencyPhone" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Emergency Contact Phone</FormLabel>
-              <FormControl>
-                <Input placeholder="+234..." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
+          </div>
+          <Progress value={progress} className="h-2" />
         </div>
 
-        <FormField control={form.control} name="notes" render={({ field }) => (
-          <FormItem>
-            <FormLabel>Additional Notes (Optional)</FormLabel>
-            <FormControl>
-              <Textarea placeholder="Any additional information you'd like to share..." {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={step}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-4"
+          >
 
-        <Button type="submit" className="w-full">
-          Submit Volunteer Application
-        </Button>
+            {/* Step 1: Personal Info */}
+            {current.key === "personal" && (
+              <div className="space-y-4">
+                <FormField control={form.control} name="fullName" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Full Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Your full name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email Address</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="you@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+
+                  <FormField control={form.control} name="phone" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="+234..." {...field} />
+                      </FormControl>
+                      <FormDescription>WhatsApp preferred if available.</FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField control={form.control} name="age" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Age</FormLabel>
+                      <FormControl>
+                        <Input placeholder="25" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+
+                  <FormField control={form.control} name="occupation" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Occupation (Optional)</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Your profession or field of study" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+              </div>
+            )}
+
+            {/* Step 2: Experience */}
+            {current.key === "experience" && (
+              <div className="space-y-4">
+                <FormField control={form.control} name="experience" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Volunteer Experience</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your experience level" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="first_time">First time volunteering</SelectItem>
+                        <SelectItem value="some_experience">Some volunteer experience</SelectItem>
+                        <SelectItem value="very_experienced">Very experienced volunteer</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="skills" render={() => (
+                  <FormItem>
+                    <FormLabel>Skills & Interests (Select all that apply)</FormLabel>
+                    <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {skillsOptions.map((opt) => (
+                        <FormField key={opt.value} control={form.control} name="skills" render={({ field }) => {
+                          const checked = (field.value || []).includes(opt.value);
+                          return (
+                            <FormItem className="flex items-center gap-3 space-y-0 border rounded-md p-3">
+                              <FormControl>
+                                <Checkbox
+                                  checked={checked}
+                                  onCheckedChange={(v) => {
+                                    const arr = new Set(field.value || []);
+                                    if (v) arr.add(opt.value); else arr.delete(opt.value);
+                                    field.onChange(Array.from(arr));
+                                  }}
+                                />
+                              </FormControl>
+                              <FormLabel className="!m-0 !text-sm">{opt.label}</FormLabel>
+                            </FormItem>
+                          );
+                        }} />
+                      ))}
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                {form.watch("skills")?.includes("other") && (
+                  <FormField control={form.control} name="skillsOther" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Please specify your other skills</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Describe your other relevant skills" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                )}
+
+                <FormField control={form.control} name="motivation" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Why do you want to volunteer with us?</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Tell us what motivates you to volunteer for the Igiehon Mathematics Tournament..." {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+              </div>
+            )}
+
+            {/* Step 3: Availability */}
+            {current.key === "availability" && (
+              <div className="space-y-4">
+                <FormField control={form.control} name="availability" render={() => (
+                  <FormItem>
+                    <FormLabel>When are you available? (Select all that apply)</FormLabel>
+                    <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {availabilityOptions.map((opt) => (
+                        <FormField key={opt.value} control={form.control} name="availability" render={({ field }) => {
+                          const checked = (field.value || []).includes(opt.value);
+                          return (
+                            <FormItem className="flex items-center gap-3 space-y-0 border rounded-md p-3">
+                              <FormControl>
+                                <Checkbox
+                                  checked={checked}
+                                  onCheckedChange={(v) => {
+                                    const arr = new Set(field.value || []);
+                                    if (v) arr.add(opt.value); else arr.delete(opt.value);
+                                    field.onChange(Array.from(arr));
+                                  }}
+                                />
+                              </FormControl>
+                              <FormLabel className="!m-0 !text-sm">{opt.label}</FormLabel>
+                            </FormItem>
+                          );
+                        }} />
+                      ))}
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+              </div>
+            )}
+
+            {/* Step 4: Emergency Contact */}
+            {current.key === "emergency" && (
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField control={form.control} name="emergencyContact" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Emergency Contact Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Contact person's name" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+
+                  <FormField control={form.control} name="emergencyPhone" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Emergency Contact Phone</FormLabel>
+                      <FormControl>
+                        <Input placeholder="+234..." {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+
+                <FormField control={form.control} name="notes" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Additional Notes (Optional)</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Any additional information you'd like to share..." {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+              </div>
+            )}
+
+            {/* Step 5: Review */}
+            {current.key === "review" && (
+              <div className="space-y-4">
+                <h4 className="font-semibold">Review Your Application</h4>
+                <div className="space-y-3 text-sm">
+                  <div className="grid grid-cols-2 gap-2">
+                    <span className="font-medium">Name:</span>
+                    <span>{form.watch("fullName")}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <span className="font-medium">Email:</span>
+                    <span>{form.watch("email")}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <span className="font-medium">Phone:</span>
+                    <span>{form.watch("phone")}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <span className="font-medium">Experience:</span>
+                    <span>{form.watch("experience")?.replace("_", " ")}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <span className="font-medium">Availability:</span>
+                    <span>{form.watch("availability")?.join(", ")}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation */}
+        <div className="flex justify-between pt-4">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={back}
+            disabled={step === 0}
+          >
+            Previous
+          </Button>
+          
+          {step < steps.length - 1 ? (
+            <Button type="button" onClick={next}>
+              Next
+            </Button>
+          ) : (
+            <Button type="submit">
+              Submit Application
+            </Button>
+          )}
+        </div>
       </form>
     </Form>
   );

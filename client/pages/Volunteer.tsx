@@ -43,7 +43,6 @@ export default function Volunteer() {
             </div>
             <div className="rounded-xl border bg-card p-6">
               <Reveal>
-                <h3 className="font-semibold mb-1">Volunteer Intake Form</h3>
                 <p className="text-xs text-muted-foreground mb-4">Location: Benin City, Edo State</p>
                 <RegistrationForm interest="volunteer" />
               </Reveal>
