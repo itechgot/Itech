@@ -143,6 +143,23 @@ export default function Index() {
               <li>Open to senior secondary schools in Edo State</li>
               <li>Registration Window: {upcomingEvent.registrationWindow}</li>
             </ul>
+            <div className="mt-6 rounded-xl border bg-gradient-to-r from-brand-gold/10 to-primary/10 p-5">
+              <h3 className="font-semibold text-brand-gold">Prize Pool</h3>
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="text-center p-3 rounded-lg bg-card/80">
+                  <div className="text-lg font-bold text-brand-gold">1st Place</div>
+                  <div className="text-2xl font-extrabold">₦1,000,000</div>
+                </div>
+                <div className="text-center p-3 rounded-lg bg-card/80">
+                  <div className="text-lg font-bold text-brand-gold">2nd Place</div>
+                  <div className="text-2xl font-extrabold">₦750,000</div>
+                </div>
+                <div className="text-center p-3 rounded-lg bg-card/80">
+                  <div className="text-lg font-bold text-brand-gold">3rd Place</div>
+                  <div className="text-2xl font-extrabold">₦500,000</div>
+                </div>
+              </div>
+            </div>
             <div className="mt-6 grid grid-cols-2 gap-3">
               <Button asChild variant="secondary">
                 <a href="#volunteer">Volunteer</a>

@@ -52,6 +52,8 @@ export default function Register() {
             "Teams consist of two (2) students from any class",
             "Teams must identify a teacher coach at registration",
             "Competition includes written test and oral segment",
+            "Laptops awarded to top 3 individual students",
+            "Consolation prizes for top 10 students",
           ]
         };
     }
