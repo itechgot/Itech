@@ -79,16 +79,32 @@ export default function Register() {
               <p className="mt-4 text-muted-foreground">
                 {content.description}
               </p>
-              <div className="mt-6 rounded-xl border bg-card p-5">
-                <h3 className="font-semibold">
-                  {interest === "event" ? "Eligibility Criteria" : 
-                   interest === "volunteer" ? "What You Get" : "Partnership Benefits"}
-                </h3>
-                <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                  {content.details.map((detail, index) => (
-                    <li key={index}>{detail}</li>
-                  ))}
-                </ul>
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-xl border bg-card p-5">
+                  <h3 className="font-semibold">
+                    {interest === "event" ? "Eligibility Criteria" : 
+                     interest === "volunteer" ? "What You Get" : "Partnership Benefits"}
+                  </h3>
+                  <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                    {content.details.map((detail, index) => (
+                      <li key={index}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+                {interest === "event" && (
+                  <div className="rounded-xl border bg-card p-5">
+                    <h3 className="font-semibold">Awards</h3>
+                    <div className="mt-2 text-sm text-muted-foreground">
+                      <p className="mb-2">Laptops for the top 3 students and consolation prizes for the top 10 students, their teachers, and their schools.</p>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>Top 3 students receive laptops</li>
+                        <li>Top 10 students receive consolation prizes</li>
+                        <li>Teachers of winning students are recognized</li>
+                        <li>Schools of winning students are recognized</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div className="rounded-2xl border bg-card/90 backdrop-blur p-6 shadow-lg ring-1 ring-border">
