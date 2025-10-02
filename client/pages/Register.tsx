@@ -12,6 +12,53 @@ export default function Register() {
     | "volunteer"
     | "partner";
 
+  const getContent = () => {
+    switch (interest) {
+      case "volunteer":
+        return {
+          title: "Volunteer Application",
+          subtitle: "Join our team to deliver an exceptional experience for students",
+          description: "Help us make the 4th Igiehon Mathematics Tournament a success by volunteering your time and skills.",
+          details: [
+            "Flexible time commitments available",
+            "Training and orientation provided",
+            "Certificate of participation",
+            "Networking opportunities",
+            "Make a meaningful impact on education",
+          ]
+        };
+      case "partner":
+        return {
+          title: "Partnership Inquiry",
+          subtitle: "Partner with us to empower students and advance academic excellence",
+          description: "Join us as a strategic partner to support mathematics education and student development in Edo State.",
+          details: [
+            "Multiple partnership opportunities available",
+            "Brand visibility and recognition",
+            "Corporate social responsibility impact",
+            "Direct contribution to education",
+            "Long-term partnership potential",
+          ]
+        };
+      default:
+        return {
+          title: "Register for the 4th Igiehon Mathematics Tournament",
+          subtitle: `Event: ${upcomingEvent.date} • Benin City, Edo State`,
+          description: "Register your school team for the premier mathematics competition in Edo State.",
+          details: [
+            "Free registration",
+            `Registration Window: ${upcomingEvent.registrationWindow}`,
+            "Open to all Senior Secondary Schools in Edo State",
+            "Teams consist of two (2) students from any class",
+            "Teams must identify a teacher coach at registration",
+            "Competition includes written test and oral segment",
+          ]
+        };
+    }
+  };
+
+  const content = getContent();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -22,31 +69,23 @@ export default function Register() {
           <div className="container py-16 md:py-24 grid md:grid-cols-2 gap-10 items-start">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Register for the 4th Igiehon Mathematics Tournament
+                {content.title}
               </h1>
               <p className="text-muted-foreground mt-2">
-                Event: {upcomingEvent.date} • Benin City, Edo State
+                {content.subtitle}
               </p>
-              <ul className="mt-4 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
-                <li>Free registration</li>
-                <li>Registration Window: {upcomingEvent.registrationWindow}</li>
-              </ul>
+              <p className="mt-4 text-muted-foreground">
+                {content.description}
+              </p>
               <div className="mt-6 rounded-xl border bg-card p-5">
-                <h3 className="font-semibold">Eligibility Criteria</h3>
+                <h3 className="font-semibold">
+                  {interest === "event" ? "Eligibility Criteria" : 
+                   interest === "volunteer" ? "What You Get" : "Partnership Benefits"}
+                </h3>
                 <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                  <li>Open to all Senior Secondary Schools in Edo State</li>
-                  <li>
-                    All participants must be current Senior Secondary Students
-                  </li>
-                  <li>
-                    Teams consist of two (2) students from any class or
-                    department
-                  </li>
-                  <li>Teams must identify a teacher coach at registration</li>
-                  <li>
-                    Competition includes written test (Initial Round) and oral
-                    segment (Finals)
-                  </li>
+                  {content.details.map((detail, index) => (
+                    <li key={index}>{detail}</li>
+                  ))}
                 </ul>
               </div>
             </div>
