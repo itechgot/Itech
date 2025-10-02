@@ -44,12 +44,20 @@ const faqData: FAQCategory[] = [
       {
         question: "Can students from different classes team up?",
         answer: "Yes, the two students in a team can be from any class or department within the same school. For example, one student from SS1 and another from SS3 can form a team."
+      },
+      {
+        question: "What documents are required for registration?",
+        answer: "You'll need valid school identification for both students, contact information for the teacher coach, and basic school details. No physical documents need to be uploaded during online registration."
+      },
+      {
+        question: "Can private schools participate?",
+        answer: "Yes, both public and private Senior Secondary Schools in Edo State are eligible to participate in the tournament."
       }
     ]
   },
   {
-    title: "Competition Format",
-    description: "Understanding how the tournament works",
+    title: "Competition Format & Rules",
+    description: "Understanding how the tournament works and competition guidelines",
     items: [
       {
         question: "What is the format of the competition?",
@@ -57,19 +65,31 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "What topics will be covered in the competition?",
-        answer: "The competition covers mathematics topics typically taught in Senior Secondary Schools, including algebra, geometry, trigonometry, calculus, and problem-solving techniques."
+        answer: "The competition covers mathematics topics typically taught in Senior Secondary Schools, including algebra, geometry, trigonometry, calculus, statistics, and advanced problem-solving techniques."
       },
       {
         question: "How many teams advance to the finals?",
-        answer: "The top-performing teams from the written test will advance to the oral segment (finals). The exact number depends on the total number of participating teams."
+        answer: "The top-performing teams from the written test will advance to the oral segment (finals). The exact number depends on the total number of participating teams, typically the top 10-15 teams."
       },
       {
         question: "Can teams use calculators or reference materials?",
-        answer: "Specific rules about calculators and reference materials will be communicated to registered teams closer to the tournament date. Generally, basic calculators may be allowed for certain sections."
+        answer: "Specific rules about calculators and reference materials will be communicated to registered teams closer to the tournament date. Generally, basic scientific calculators may be allowed for certain sections."
       },
       {
         question: "How long is the competition?",
-        answer: "The written test typically lasts 2-3 hours, while the oral segment varies depending on the number of finalist teams. The entire event usually runs for a full day."
+        answer: "The written test typically lasts 2-3 hours, while the oral segment varies depending on the number of finalist teams. The entire event usually runs for a full day from 8:00 AM to 6:00 PM."
+      },
+      {
+        question: "What is the difficulty level of the questions?",
+        answer: "Questions range from standard Senior Secondary level to challenging problem-solving scenarios. The competition is designed to test both fundamental knowledge and creative mathematical thinking."
+      },
+      {
+        question: "Are there practice materials available?",
+        answer: "Sample questions and preparation guidelines will be shared with registered teams approximately 2-3 weeks before the tournament date."
+      },
+      {
+        question: "How is the scoring system structured?",
+        answer: "The written test contributes to team qualification for finals, while the oral segment determines final rankings. Both individual and team performances are evaluated separately."
       }
     ]
   },
@@ -92,12 +112,20 @@ const faqData: FAQCategory[] = [
       {
         question: "Do teachers and schools receive recognition?",
         answer: "Absolutely! Teachers of winning students and their schools receive recognition and awards, acknowledging their role in developing mathematical talent."
+      },
+      {
+        question: "When are prizes distributed?",
+        answer: "Prizes are typically distributed immediately after the closing ceremony on the tournament day. Cash prizes may require additional verification and could be distributed within 1-2 weeks."
+      },
+      {
+        question: "Are there participation certificates?",
+        answer: "Yes, all participating students, teachers, and schools receive certificates of participation, recognizing their commitment to mathematical excellence."
       }
     ]
   },
   {
-    title: "Event Logistics",
-    description: "Practical information about the tournament day",
+    title: "Event Logistics & Preparation",
+    description: "Practical information about the tournament day and preparation",
     items: [
       {
         question: "When and where is the tournament?",
@@ -105,7 +133,11 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "What should teams bring on the tournament day?",
-        answer: "Teams should bring valid school identification, writing materials (pens, pencils, erasers), and any permitted calculators. Specific requirements will be communicated to registered teams."
+        answer: "Teams should bring valid school identification, writing materials (pens, pencils, erasers), permitted calculators, and a water bottle. Specific requirements will be communicated to registered teams."
+      },
+      {
+        question: "What time should teams arrive?",
+        answer: "Teams should arrive by 7:30 AM for registration and briefing. The competition officially begins at 8:30 AM sharp."
       },
       {
         question: "Is accommodation provided for out-of-town schools?",
@@ -113,25 +145,33 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "Will meals be provided during the tournament?",
-        answer: "Light refreshments are typically provided during breaks. Detailed information about meals and refreshments will be shared with registered teams before the event."
+        answer: "Light refreshments are provided during breaks, and lunch is provided for all participants. Special dietary requirements should be communicated during registration."
       },
       {
         question: "What COVID-19 safety measures are in place?",
         answer: "We follow current health guidelines to ensure a safe environment for all participants. Specific safety protocols will be communicated closer to the event date."
+      },
+      {
+        question: "Is there parking available at the venue?",
+        answer: "Yes, parking is available at the venue. However, we recommend carpooling or using public transportation when possible due to limited spaces."
+      },
+      {
+        question: "Can parents and other students attend as spectators?",
+        answer: "Yes, parents and school supporters are welcome to attend. However, they must register as spectators and will be seated in designated areas during the competition."
       }
     ]
   },
   {
-    title: "After Registration",
-    description: "What happens once you've registered",
+    title: "After Registration & Communication",
+    description: "What happens once you've registered and how we stay in touch",
     items: [
       {
         question: "What happens after I submit the registration form?",
-        answer: "You'll receive an immediate confirmation on the page. Our team will review your registration and may contact you via email or phone for verification or additional information."
+        answer: "You'll receive an immediate confirmation on the page. Our team will review your registration and send a detailed confirmation email within 24-48 hours with additional information."
       },
       {
         question: "How will I receive updates about the tournament?",
-        answer: "Updates will be sent to the email address and phone number provided during registration. Make sure to provide accurate contact information for your teacher coach."
+        answer: "Updates will be sent to the email address and phone number provided during registration. We also post important updates on our website and social media channels."
       },
       {
         question: "Can I modify my registration after submission?",
@@ -140,12 +180,20 @@ const faqData: FAQCategory[] = [
       {
         question: "What if my school needs to withdraw from the tournament?",
         answer: "If you need to withdraw, please contact us as soon as possible so we can update our records and potentially offer the spot to another school."
+      },
+      {
+        question: "How do I know if my registration was successful?",
+        answer: "You'll receive an immediate on-screen confirmation followed by a detailed email confirmation within 48 hours. If you don't receive the email, please check your spam folder or contact us."
+      },
+      {
+        question: "Will there be a pre-tournament briefing?",
+        answer: "Yes, registered teams will receive detailed guidelines and rules 1-2 weeks before the tournament. A brief orientation session will also be held on the tournament morning."
       }
     ]
   },
   {
     title: "Volunteering & Partnerships",
-    description: "Getting involved beyond participation",
+    description: "Getting involved beyond participation and supporting the tournament",
     items: [
       {
         question: "How can I volunteer for the tournament?",
@@ -153,7 +201,11 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "What volunteer opportunities are available?",
-        answer: "Volunteers can assist with registration, exam supervision, logistics coordination, student guidance, and event setup. Training and orientation are provided for all volunteers."
+        answer: "Volunteers can assist with registration, exam supervision, logistics coordination, student guidance, event setup, and technical support. Training and orientation are provided for all volunteers."
+      },
+      {
+        question: "Do volunteers receive any benefits?",
+        answer: "Volunteers receive certificates of appreciation, meals during the event, and the satisfaction of contributing to mathematics education in Edo State."
       },
       {
         question: "Can organizations partner with the tournament?",
@@ -161,7 +213,41 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "What are the benefits of partnering with the tournament?",
-        answer: "Partners receive brand visibility, recognition at the event, and the opportunity to directly contribute to mathematics education in Edo State while fulfilling corporate social responsibility goals."
+        answer: "Partners receive brand visibility, recognition at the event, networking opportunities, and the chance to directly contribute to mathematics education in Edo State while fulfilling corporate social responsibility goals."
+      },
+      {
+        question: "Can alumni or former participants get involved?",
+        answer: "Absolutely! Alumni and former participants can volunteer as mentors, judges, or event coordinators. Their experience is invaluable in inspiring current participants."
+      },
+      {
+        question: "How can schools support the tournament beyond participation?",
+        answer: "Schools can help by promoting the tournament to other institutions, providing volunteers, sharing resources, or offering venues for future events."
+      }
+    ]
+  },
+  {
+    title: "Technical & Accessibility",
+    description: "Technical requirements and accessibility considerations",
+    items: [
+      {
+        question: "Is the venue accessible for students with disabilities?",
+        answer: "Yes, we ensure the venue is accessible and can accommodate students with special needs. Please indicate any specific requirements during registration."
+      },
+      {
+        question: "What if a student has learning difficulties or special needs?",
+        answer: "We provide reasonable accommodations for students with documented learning difficulties or special needs. Contact us during registration to discuss specific requirements."
+      },
+      {
+        question: "Are there provisions for students who need extra time?",
+        answer: "Students with documented needs for extended time will be accommodated. Please provide relevant documentation during registration or contact us directly."
+      },
+      {
+        question: "What technology is used during the competition?",
+        answer: "The competition primarily uses traditional paper-and-pencil format. Any technology requirements will be clearly communicated to registered teams in advance."
+      },
+      {
+        question: "Is there technical support available during the event?",
+        answer: "Yes, technical support staff will be available throughout the event to assist with any equipment or technology-related issues."
       }
     ]
   }
@@ -179,29 +265,34 @@ function FAQAccordion({ category }: { category: FAQCategory }) {
   };
 
   return (
-    <div className="rounded-2xl border bg-card/50 backdrop-blur">
-      <div className="p-6 border-b border-border/50">
-        <h2 className="text-xl font-bold">{category.title}</h2>
-        <p className="text-muted-foreground text-sm mt-1">{category.description}</p>
+    <div className="rounded-2xl border bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+      <div className="p-4 sm:p-6 border-b border-border/50">
+        <h2 className="text-lg sm:text-xl font-bold text-foreground">{category.title}</h2>
+        <p className="text-muted-foreground text-sm mt-1 leading-relaxed">{category.description}</p>
       </div>
       <div className="divide-y divide-border/50">
         {category.items.map((item, index) => (
-          <div key={index} className="p-6">
+          <div key={index} className="p-4 sm:p-6">
             <button
               onClick={() => toggleItem(index)}
-              className="flex items-center justify-between w-full text-left group"
+              className="flex items-start justify-between w-full text-left group focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg p-2 -m-2"
+              aria-expanded={openItems.includes(index)}
+              aria-controls={`faq-answer-${index}`}
             >
-              <h3 className="font-medium pr-4 group-hover:text-primary transition-colors">
+              <h3 className="font-medium pr-4 group-hover:text-primary transition-colors text-sm sm:text-base leading-relaxed">
                 {item.question}
               </h3>
               <ChevronDownIcon 
-                className={`w-5 h-5 text-muted-foreground transition-transform ${
+                className={`w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground transition-transform flex-shrink-0 mt-0.5 ${
                   openItems.includes(index) ? 'rotate-180' : ''
                 }`}
               />
             </button>
             {openItems.includes(index) && (
-              <div className="mt-4 text-muted-foreground leading-relaxed">
+              <div 
+                id={`faq-answer-${index}`}
+                className="mt-3 sm:mt-4 text-muted-foreground leading-relaxed text-sm sm:text-base pl-2 border-l-2 border-primary/20"
+              >
                 {item.answer}
               </div>
             )}
@@ -221,44 +312,81 @@ export default function FAQ() {
         <section className="relative border-b">
           <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
           <div className="absolute inset-0 -z-10 opacity-30 [background-image:radial-gradient(hsl(var(--brand-gold))/0.1_1px,transparent_1px)] [background-size:24px_24px]" />
-          <div className="container py-16 md:py-20">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
+          <div className="container py-12 sm:py-16 md:py-20">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight">
                 Frequently Asked Questions
               </h1>
-              <p className="text-muted-foreground mt-4 text-lg">
+              <p className="text-muted-foreground mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed px-4">
                 Everything you need to know about the Igiehon Mathematics Tournament. 
-                Find answers to common questions about registration, competition format, prizes, and more.
+                Find comprehensive answers to questions about registration, competition format, prizes, logistics, and more.
               </p>
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+                <Link 
+                  to="/register" 
+                  className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-4 sm:px-6 py-2.5 sm:py-3 font-medium hover:bg-primary/90 transition-colors text-sm sm:text-base"
+                >
+                  Register Your Team
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-4 sm:px-6 py-2.5 sm:py-3 font-medium hover:bg-accent transition-colors text-sm sm:text-base"
+                >
+                  Ask a Question
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Navigation */}
+        <section className="container py-8 sm:py-12">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center">Quick Navigation</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+              {faqData.map((category, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    const element = document.getElementById(`category-${index}`);
+                    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="p-2 sm:p-3 text-xs sm:text-sm font-medium rounded-lg border border-border bg-card/50 hover:bg-accent transition-colors text-center"
+                >
+                  {category.title}
+                </button>
+              ))}
             </div>
           </div>
         </section>
 
         {/* FAQ Content */}
-        <section className="container py-16 md:py-24">
-          <div className="max-w-4xl mx-auto space-y-8">
+        <section className="container py-8 sm:py-16 md:py-24">
+          <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             {faqData.map((category, index) => (
-              <FAQAccordion key={index} category={category} />
+              <div key={index} id={`category-${index}`} className="scroll-mt-24">
+                <FAQAccordion category={category} />
+              </div>
             ))}
           </div>
 
           {/* Call to Action */}
-          <div className="max-w-4xl mx-auto mt-16">
-            <div className="rounded-2xl border bg-gradient-to-r from-primary/5 to-accent/5 p-8 text-center">
-              <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
-              <p className="text-muted-foreground mb-6">
-                Can't find the answer you're looking for? We're here to help.
+          <div className="max-w-4xl mx-auto mt-12 sm:mt-16">
+            <div className="rounded-2xl border bg-gradient-to-r from-primary/5 to-accent/5 p-6 sm:p-8 text-center">
+              <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Still have questions?</h2>
+              <p className="text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
+                Can't find the answer you're looking for? Our team is ready to help with any additional questions about the tournament.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link 
                   to="/contact" 
-                  className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-6 py-3 font-medium hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-4 sm:px-6 py-2.5 sm:py-3 font-medium hover:bg-primary/90 transition-colors text-sm sm:text-base"
                 >
                   Contact Us
                 </Link>
                 <Link 
                   to="/register" 
-                  className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 font-medium hover:bg-accent transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-4 sm:px-6 py-2.5 sm:py-3 font-medium hover:bg-accent transition-colors text-sm sm:text-base"
                 >
                   Register Now
                 </Link>
