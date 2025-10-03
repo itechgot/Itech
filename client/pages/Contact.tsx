@@ -27,7 +27,7 @@ export default function Contact() {
                     {/* <li>
                       Lagos Office: F19, Lekki Town Square Mall, Providence Road, Marwa, Lekki
                       Phase 1, Lagos
-                    </li> */)
+                    </li> */}
                     <li>Email: info@igiehonfoundation.org</li>
                   </ul>
                 </div>
