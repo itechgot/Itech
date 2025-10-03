@@ -24,10 +24,10 @@ export default function Contact() {
                 <div className="mt-6 rounded-xl border bg-card p-6">
                   <h3 className="font-semibold">Contact Details</h3>
                   <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                    <li>
+                  /* <li>
                       Lagos Office: F19, Lekki Town Square Mall, Providence Road, Marwa, Lekki
                       Phase 1, Lagos
-                    </li>
+                    </li> */
                     <li>Email: info@igiehonfoundation.org</li>
                   </ul>
                 </div>
