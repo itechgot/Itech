@@ -30,7 +30,7 @@ const heardOptions = [
 ] as const;
 
 const eventSchema = z.object({
-  teacherCoachName: z.string().min(2, "Teacher coach name is required"),
+  teacherCoachName: z.string().min(2, "Teacher's name is required"),
   teacherCoachEmail: z.string().email("Valid email is required"),
   teacherCoachPhone: z.string().min(7, "Phone number is required"),
   schoolName: z.string().min(2, "School name is required"),
