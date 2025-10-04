@@ -162,7 +162,7 @@ export function Footer() {
               © {new Date().getFullYear()} Igiehon Foundation for Academic Excellence. All rights reserved.
             </p>
             <p>
-              Empowering minds, inspiring excellence.
+              ...in pursuit of excellence & heritage.
             </p>
           </div>
         </div>

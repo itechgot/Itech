@@ -30,7 +30,7 @@ const heardOptions = [
 ] as const;
 
 const eventSchema = z.object({
-  teacherCoachName: z.string().min(2, "Teacher's name is required"),
+  teacherCoachName: z.string().min(2, "Teacher name is required"),
   teacherCoachEmail: z.string().email("Valid email is required"),
   teacherCoachPhone: z.string().min(7, "Phone number is required"),
   schoolName: z.string().min(2, "School name is required"),
@@ -75,7 +75,7 @@ export function EventRegistrationForm() {
   });
 
   const steps = [
-    { key: "coach", label: "Teacher Coach" },
+    { key: "coach", label: "Teacher" },
     { key: "school", label: "School Info" },
     { key: "students", label: "Students" },
     { key: "additional", label: "Additional" },
@@ -176,8 +176,13 @@ export function EventRegistrationForm() {
             <div className="text-sm font-medium">Step {step + 1} of {steps.length}</div>
             <div className="text-sm text-muted-foreground">{progress}%</div>
           </div>
-          <Progress value={progress} />
-          <p className="text-xs text-muted-foreground">Event Registration • {upcomingEvent.date} • Benin City, Edo State</p>
+          <div className="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
+            <div 
+              className="h-full bg-primary/90 transition-all duration-300 ease-in-out" 
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <p className="text-xs text-muted-foreground">Registration Window: {upcomingEvent.registrationWindow}</p>
           <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
             {steps.map((s, i) => (
               <span key={s.key} className={`px-2 py-1 rounded ${i === step ? 'bg-primary text-primary-foreground' : 'bg-secondary'}`}>{s.label}</span>
@@ -190,7 +195,7 @@ export function EventRegistrationForm() {
             <motion.div key="coach" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField control={form.control} name="teacherCoachName" render={({ field }) => (
                 <FormItem className="md:col-span-2">
-                  <FormLabel>Teacher Coach Full Name</FormLabel>
+                  <FormLabel>Teacher Full Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Teacher's full name" {...field} />
                   </FormControl>
@@ -200,7 +205,7 @@ export function EventRegistrationForm() {
 
               <FormField control={form.control} name="teacherCoachEmail" render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Teacher Coach Email</FormLabel>
+                  <FormLabel>Teacher Email</FormLabel>
                   <FormControl>
                     <Input type="email" placeholder="teacher@school.edu" {...field} />
                   </FormControl>
@@ -210,7 +215,7 @@ export function EventRegistrationForm() {
 
               <FormField control={form.control} name="teacherCoachPhone" render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Teacher Coach Phone</FormLabel>
+                  <FormLabel>Teacher Phone</FormLabel>
                   <FormControl>
                     <Input placeholder="+234..." {...field} />
                   </FormControl>
