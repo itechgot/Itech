@@ -38,9 +38,7 @@ const skillsOptions = [
   { value: "registration", label: "Registration & Check-in" },
   { value: "crowd_control", label: "Crowd Control & Guidance" },
   { value: "technical", label: "Technical Support" },
-  { value: "photography", label: "Photography/Videography" },
   { value: "logistics", label: "Logistics & Coordination" },
-  { value: "first_aid", label: "First Aid" },
   { value: "other", label: "Other" },
 ] as const;
 
@@ -52,7 +50,7 @@ const volunteerSchema = z.object({
   occupation: z.string().optional(),
   experience: z.enum(["first_time", "some_experience", "very_experienced"], { required_error: "Please select your experience level" }),
   availability: z.array(z.enum(availabilityOptions.map(o => o.value) as ["setup","morning","afternoon","cleanup"])).min(1, "Please select at least one availability option"),
-  skills: z.array(z.enum(skillsOptions.map(o => o.value) as ["registration","crowd_control","technical","photography","logistics","first_aid","other"])).optional(),
+  skills: z.array(z.enum(skillsOptions.map(o => o.value) as ["registration","crowd_control","technical","logistics","other"])).optional(),
   skillsOther: z.string().optional(),
   motivation: z.string().min(10, "Please tell us why you want to volunteer"),
   emergencyContact: z.string().min(2, "Emergency contact name is required"),

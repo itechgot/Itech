@@ -158,7 +158,6 @@ export default function Privacy() {
               </p>
               <div className="space-y-2 text-sm">
                 <p><strong>Email:</strong> info@igiehonfoundation.org</p>
-                <p><strong>Address:</strong> F19, Lekki Town Square Mall, Providence Road, Marwa, Lekki Phase 1, Lagos, Nigeria</p>
               </div>
             </div>
 

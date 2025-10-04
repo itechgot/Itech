@@ -28,18 +28,6 @@ export function Footer() {
             
             {/* Contact Info */}
             <div className="space-y-3 pt-2">
-              <div className="flex items-start gap-3 text-sm">
-                <MapPin className="h-4 w-4 mt-0.5 text-muted-foreground flex-shrink-0" />
-                <div>
-                  <p className="font-medium">Lagos Office</p>
-                  <p className="text-muted-foreground">
-                    F19, Lekki Town Square Mall<br />
-                    Providence Road, Marwa, Lekki Phase 1<br />
-                    Lagos, Nigeria
-                  </p>
-                </div>
-              </div>
-              
               <div className="flex items-center gap-3 text-sm">
                 <Mail className="h-4 w-4 text-muted-foreground" />
                 <a 

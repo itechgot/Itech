@@ -317,19 +317,19 @@ export function PartnerRegistrationForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField control={form.control} name="budget" render={({ field }) => (
             <FormItem>
-              <FormLabel>Partnership Budget Range (NGN)</FormLabel>
+              <FormLabel>Program Sponsorship & Collaboration Level</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select budget range" />
+                    <SelectValue placeholder="Select collaboration level" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="under_100k">Under ₦100,000</SelectItem>
-                  <SelectItem value="100k_500k">₦100,000 - ₦500,000</SelectItem>
-                  <SelectItem value="500k_1m">₦500,000 - ₦1,000,000</SelectItem>
-                  <SelectItem value="1m_plus">₦1,000,000+</SelectItem>
-                  <SelectItem value="non_monetary">Non-monetary support</SelectItem>
+                  <SelectItem value="under_100k">Supporting Partner (Under ₦100,000)</SelectItem>
+                  <SelectItem value="100k_500k">Program Partner (₦100,000 - ₦500,000)</SelectItem>
+                  <SelectItem value="500k_1m">Strategic Partner (₦500,000 - ₦1,000,000)</SelectItem>
+                  <SelectItem value="1m_plus">Premier Partner (₦1,000,000+)</SelectItem>
+                  <SelectItem value="non_monetary">In-kind/Resource Collaboration</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />

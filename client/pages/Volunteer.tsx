@@ -39,6 +39,14 @@ export default function Volunteer() {
                     optional post-event debrief.
                   </p>
                 </div>
+                <div className="mt-6 rounded-xl border bg-card p-6">
+                  <h3 className="font-semibold">Volunteer Deployment</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Volunteers will be assigned to roles based on event needs, individual skills, and availability. 
+                    Our team will match your preferences with critical areas to ensure optimal event delivery and 
+                    meaningful volunteer experience.
+                  </p>
+                </div>
               </Reveal>
             </div>
             <div className="rounded-xl border bg-card p-6">
