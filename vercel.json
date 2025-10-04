@@ -1,7 +1,7 @@
 {
-  "buildCommand": "pnpm build:client",
-  "outputDirectory": "dist/spa", 
-  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "npm run build:client",
+  "outputDirectory": "dist/spa",
+  "installCommand": "npm install",
   "framework": null,
   "functions": {},
   "rewrites": [
@@ -12,7 +12,7 @@
   ],
   "build": {
     "env": {
-      "ENABLE_EXPERIMENTAL_COREPACK": "1"
+      "NODE_VERSION": "20"
     }
   }
 }
