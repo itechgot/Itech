@@ -5,7 +5,6 @@
 ### Vercel (Primary - Recommended)
 - **Status**: ✅ Active
 - **URL**: https://igfsite-github-io-git-main-m-is-projects-7d992abc.vercel.app/
-- **Custom Domain**: https://igiehonfoundation.org (if configured)
 - **Features**: 
   - Full React Router support
   - Instant deployments
