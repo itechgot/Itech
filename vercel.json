@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm build:client",
-  "outputDirectory": "dist/spa",
+  "outputDirectory": "dist/spa", 
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": null,
   "functions": {},
@@ -9,5 +9,10 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "ENABLE_EXPERIMENTAL_COREPACK": "1"
+    }
+  }
 }
