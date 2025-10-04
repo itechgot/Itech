@@ -1,8 +1,9 @@
 {
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm build:client",
   "outputDirectory": "dist/spa",
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": null,
+  "functions": {},
   "rewrites": [
     {
       "source": "/(.*)",
