@@ -92,17 +92,17 @@ export default function Events() {
                       <div className="flex items-center gap-3 mb-4">
                         <Trophy className="h-8 w-8 text-brand-gold" />
                         <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-                          From Champion to University Success
+                          "Mathematics Changed My Life Forever"
                         </h2>
                       </div>
                       <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                        Meet Adaora Okafor, winner of IMT 2022, now thriving as a Mathematics major at the University of Lagos. 
-                        Her journey from tournament champion to academic excellence showcases the transformative power of mathematical competition.
+                        Watch Adaora Okafor's inspiring journey from IMT 2022 champion to university mathematics scholar. 
+                        In this heartfelt testimonial, she shares how the tournament transformed her perspective, boosted her confidence, 
+                        and opened doors to academic opportunities she never imagined possible.
                       </p>
                       <blockquote className="border-l-4 border-brand-gold pl-4 italic text-foreground mb-6">
-                        "The tournament didn't just test my math skills—it ignited a passion that shaped my entire academic journey. 
-                        The confidence I gained competing alongside brilliant minds from across Edo State gave me the courage to pursue 
-                        mathematics at the highest level."
+                        "I walked into that tournament as a nervous student. I walked out as someone who believed in the power of her own mind. 
+                        The Igiehon Mathematics Tournament didn't just give me a prize—it gave me a future."
                       </blockquote>
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <div className="flex items-center gap-2">
@@ -116,19 +116,29 @@ export default function Events() {
                       </div>
                     </div>
                     <div className="relative">
-                      <div className="aspect-video rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-2 border-dashed border-primary/30">
-                        <div className="text-center">
-                          <Play className="h-16 w-16 text-primary mx-auto mb-4" />
-                          <p className="text-sm text-muted-foreground">
-                            Testimonial Video
-                          </p>
-                          <p className="text-xs text-muted-foreground mt-1">
-                            Coming Soon
-                          </p>
-                        </div>
+                      <div className="aspect-video rounded-2xl overflow-hidden border shadow-lg">
+                        <video 
+                          className="w-full h-full object-cover"
+                          controls
+                          preload="metadata"
+                          poster="/images/IMG-20250925-WA0000 (1).jpg"
+                        >
+                          <source src="/videos/winner-testimonial.mp4" type="video/mp4" />
+                          <div className="flex items-center justify-center h-full bg-gradient-to-br from-primary/20 to-accent/20">
+                            <div className="text-center">
+                              <Play className="h-16 w-16 text-primary mx-auto mb-4" />
+                              <p className="text-sm text-muted-foreground">
+                                Your browser doesn't support video playback
+                              </p>
+                            </div>
+                          </div>
+                        </video>
                       </div>
                       <div className="absolute -top-4 -right-4 bg-brand-gold text-primary-foreground rounded-full p-3">
                         <Star className="h-6 w-6" />
+                      </div>
+                      <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs">
+                        11:36 min
                       </div>
                     </div>
                   </div>
