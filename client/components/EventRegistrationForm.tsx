@@ -399,7 +399,7 @@ export function EventRegistrationForm() {
               <h4 className="font-semibold">Review Your Registration</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <div className="space-y-2">
-                  <div><strong>Teacher Coach:</strong> {form.watch("teacherCoachName")}</div>
+                  <div><strong>Teacher:</strong> {form.watch("teacherCoachName")}</div>
                   <div><strong>Email:</strong> {form.watch("teacherCoachEmail")}</div>
                   <div><strong>Phone:</strong> {form.watch("teacherCoachPhone")}</div>
                 </div>
