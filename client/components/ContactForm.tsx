@@ -61,27 +61,32 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof schema>) {
     const WEB3FORMS_KEY = "dfeaba57-2dc1-45e1-8c31-9d75f2823e10";
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject: values.subject,
-        from_name: "Igiehon Foundation Website",
-        reply_to: values.email,
-        ...values,
-      }),
-    });
-    const data = (await res.json()) as { success?: boolean; message?: string };
-    if (data?.success) {
-      toast.success("Message sent. We'll be in touch.");
-      setSubmitted(true);
-      form.reset();
-    } else {
-      toast.error(data?.message || "Failed to send");
+    
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: values.subject,
+          from_name: "Igiehon Foundation Website",
+          reply_to: values.email,
+          ...values,
+        }),
+      });
+      const data = (await res.json()) as { success?: boolean; message?: string };
+      if (data?.success) {
+        toast.success("Message sent. We'll be in touch.");
+        setSubmitted(true);
+        form.reset();
+      } else {
+        toast.error(data?.message || "Failed to send");
+      }
+    } catch (error) {
+      toast.error("Network error. Please check your connection and try again.");
     }
   }
 
