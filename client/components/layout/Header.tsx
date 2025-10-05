@@ -2,8 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-const logoUrl =
-  "https://cdn.builder.io/api/v1/image/assets%2F14de5a695c9545c2aa5180d70bd1c72c%2F5827d0d341a54df4b1ad54daeb958e0e?format=webp&width=800";
+const logoUrl = "/images/logo.jpg";
 
 const navItems = [
   { label: "About", to: "/about" },
