@@ -181,7 +181,7 @@ export default function Events() {
                   <div className="group relative overflow-hidden rounded-2xl border bg-card">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
-                        src="https://igiehonfoundation.org/assets/images/winnersawsrd-902x856.webp"
+                        src="/images/winnersawsrd.webp"
                         alt="IMT 2024 Winners Celebration"
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
@@ -198,7 +198,7 @@ export default function Events() {
                   <div className="group relative overflow-hidden rounded-2xl border bg-card">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
-                        src="https://igiehonfoundation.org/assets/images/students-696x759.webp"
+                        src="/images/students.webp"
                         alt="IMT 2024 Participants"
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 
-const logoUrl = "https://igiehonfoundation.org/assets/images/IFnewicon.jpg";
+const logoUrl = "/images/logo.jpg";
 
 export function Footer() {
   return (

@@ -25,13 +25,12 @@ export const pastEvents = [
   {
     title: "Winners & Awards",
     date: "Nov 2024",
-    image:
-      "https://igiehonfoundation.org/assets/images/winnersawsrd-902x856.webp",
+    image: "/images/winnersawsrd.webp",
   },
   {
     title: "Students Showcase",
     date: "Nov 2024",
-    image: "https://igiehonfoundation.org/assets/images/students-696x759.webp",
+    image: "/images/students.webp",
   },
 ];
 
@@ -39,13 +38,12 @@ export const patrons = [
   {
     name: "Engr. Osa Igiehon",
     role: "Founder",
-    image: "https://igiehonfoundation.org/assets/images/engr.-osa-511x571.webp",
+    image: "/images/engr-osa.webp",
   },
   {
     name: "Mrs. Nosa Igiehon",
     role: "Co-Founder, Chairperson",
-    image:
-      "https://igiehonfoundation.org/assets/images/nosaigiehon-396x393.webp"
+    image: "/images/nosa-igiehon.webp"
   },
 ];
 
@@ -54,7 +52,7 @@ export const team = [
   {
     name: "Event Team",
     role: "Operations & Delivery",
-    image: "https://igiehonfoundation.org/assets/images/eventteam.webp",
+    image: "/images/eventteam.webp",
   },
   */
 ];
